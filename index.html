@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>정재혁 | 데이터를 구조로 바꾸는 사람</title>
+  <meta name="description" content="클라우드 데이터베이스 수업에서 설계·구현한 DB 프로젝트와 배운 점을 소개하는 원페이지 사이트" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Fixed top navigation -->
+  <header class="nav">
+    <a class="brand" href="#home">정재혁</a>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#contact">연락처</a>
+      <a href="#guestbook">방명록</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- S01 Home -->
+    <section id="home" class="hero">
+      <img class="avatar" src="img/profile.svg" alt="정재혁 프로필 사진" width="160" height="160" />
+      <h1>정재혁</h1>
+      <p class="tagline">데이터를 구조로 바꾸는 사람</p>
+    </section>
+
+    <!-- S02 About -->
+    <section id="about">
+      <h2>소개</h2>
+      <dl class="about-grid">
+        <dt>소속</dt><dd>충남대학교</dd>
+        <dt>관심 분야</dt><dd>클라우드 데이터베이스, 데이터 모델링</dd>
+        <dt>사용 기술</dt>
+        <dd>
+          <ul class="tags">
+            <li>SQL</li><li>PostgreSQL(pgAdmin)</li><li>SQLite</li><li>Python(Colab)</li><li>AWS</li>
+          </ul>
+        </dd>
+        <dt>이번 학기에 배운 것</dt><dd>개념·논리·물리 모델링, 1NF~5NF 정규화, PK·FK 설계</dd>
+      </dl>
+    </section>
+
+    <!-- S03 Projects -->
+    <section id="projects">
+      <h2>프로젝트</h2>
+      <div id="project-list" class="cards" aria-live="polite"></div>
+    </section>
+
+    <!-- S04 Contact -->
+    <section id="contact">
+      <h2>연락처</h2>
+      <ul class="contact-list">
+        <li>이메일: <a id="email-link" href="mailto:your-email@example.com">your-email@example.com</a></li>
+        <li>GitHub: <a href="https://github.com/wjdwogur/cloud-db-intro-webapp" target="_blank" rel="noopener">wjdwogur/cloud-db-intro-webapp</a></li>
+      </ul>
+      <p class="hint">방명록이나 이메일로 피드백 주세요</p>
+    </section>
+
+    <!-- S05 Guestbook -->
+    <section id="guestbook">
+      <h2>방명록</h2>
+      <form id="gb-form" novalidate>
+        <label for="gb-name">이름</label>
+        <input id="gb-name" name="name" maxlength="20" autocomplete="name" />
+        <p class="field-error" id="gb-name-error"></p>
+
+        <label for="gb-message">메시지</label>
+        <textarea id="gb-message" name="message" rows="3" maxlength="200"></textarea>
+        <p class="counter"><span id="gb-count">0</span>/200</p>
+        <p class="field-error" id="gb-message-error"></p>
+
+        <button type="submit" id="gb-submit" disabled>남기기</button>
+        <p class="notice" id="gb-notice" role="status"></p>
+      </form>
+
+      <ul id="gb-list" class="gb-list"></ul>
+      <p id="gb-empty" class="hint" hidden>첫 방명록을 남겨 주세요</p>
+      <button id="gb-more" class="secondary" hidden>더 보기</button>
+    </section>
+  </main>
+
+  <!-- Project detail modal ([기능 1]) -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="닫기">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>© 2026 정재혁 · 클라우드 데이터베이스 자기소개 웹앱</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
